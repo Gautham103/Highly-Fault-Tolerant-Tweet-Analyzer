@@ -22,11 +22,10 @@ class TweetsListener (StreamListener):
       producer.send(kafka_topic, data.encode ('utf-8'))
       msg = json.loads (data)
       print ((msg['text']))
-      if ("trump" in msg['text']):
+      if ("covid19" in msg['text']):
         producer.send('testTopic', data.encode ('utf-8'))
       if ("trump" in msg['text']):
         producer.send(kafka_topic, data.encode ('utf-8'))
-#      print (data.encode ('utf-8'))
 
       return True
       exit (0)
@@ -43,12 +42,12 @@ class TweetsListener (StreamListener):
 
 
 kafka_topic = "sample"
-producer = KafkaProducer(bootstrap_servers=['localhost:9092','localhost:9093'])
+producer = KafkaProducer(bootstrap_servers=['localhost:9092','localhost:9093', 'localhost:9094'])
 listener = TweetsListener ()
 
 auth = OAuthHandler (consumer_key, consumer_secret)
 auth.set_access_token (access_token, access_token_secret)
 twitter_stream = Stream (auth, listener)
-twitter_stream.filter (track = ['covid19'], languages = ['en'])
+twitter_stream.filter (track = ['trump', 'usa', 'covid19'], languages = ['en'])
 
 

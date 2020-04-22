@@ -18,24 +18,17 @@ def get_tweet_sentiment(tweet):
     else:
         return 'negative'
 
-consumer = KafkaConsumer('testTopic')
+consumer = KafkaConsumer('sample')
 for message in consumer:
     msg = json.loads (message.value)
     if 'text' in msg:
-#print (msg['text'])
-
         parsed_tweet = {}
-
         parsed_tweet['text'] = msg['text']
-#print (get_tweet_sentiment(msg['text']))
         parsed_tweet['sentiment'] = get_tweet_sentiment(msg['text'])
-
-#print (msg['retweet_count'])
-        if 1:
-            if parsed_tweet not in tweets:
-                tweets.append(parsed_tweet)
-            else:
-                tweets.append(parsed_tweet)
+        if parsed_tweet not in tweets:
+            tweets.append(parsed_tweet)
+        else:
+            tweets.append(parsed_tweet)
 
         if count == 10:
             count = 0
@@ -59,7 +52,4 @@ for message in consumer:
         else:
             count = count + 1
 
-
-
 consumer.close()
-
