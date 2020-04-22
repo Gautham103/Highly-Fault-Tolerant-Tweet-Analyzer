@@ -8,10 +8,10 @@ from tweepy.streaming import StreamListener
 import kafka
 from kafka import KafkaProducer, KafkaClient
 
-consumer_key = 'IBldcrH9B5erhV4sHGqjOX57k'
-consumer_secret = 'w2HT6sMuqluRqNPOW6cq2yMSU40anXq2MICuOsuseWFXrFr7yT'
-access_token = '1150183553830985728-09CnvReXbvHsIlJLr9R4vojGM4SoSw'
-access_token_secret = '9tdNsHUXQdevx5aRtBuFwmtITuC1BmrQajJQY5JN4isK6'
+consumer_key = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+consumer_secret = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+access_token = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+access_token_secret = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
 
 class TweetsListener (StreamListener):
   def __init__ (self):
